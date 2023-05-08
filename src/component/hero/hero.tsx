@@ -1,5 +1,6 @@
+import { data } from "@/src/config/constants";
 import { Avatar, Box, Typography } from "@mui/material"
-import { format } from "date-fns/esm";
+import { format } from "date-fns";
 import Image from "next/image";
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
@@ -19,7 +20,7 @@ const Hero = () => {
         }}
       >
         {data.map(item => (
-          <Box key={item.image}>
+          <Box key={item.title}>
            <Box position={'relative'} width={'100%'} height={'70vh'}>
             <Image src={item.image} alt={item.title} fill style={{objectFit: 'cover'}}/>
             <Box sx={{
@@ -41,8 +42,8 @@ const Hero = () => {
                     zIndex: '99'
                   }}
                 > 
-                  <Typography variant="h2">{item.title}</Typography>
-                  <Typography variant="h5">{item.exerpt}</Typography>
+                  <Typography variant="h2" fontSize={{xs: '24px', sm: '36px'}}>{item.title}</Typography>
+                  <Typography variant="h5" fontSize={{xs: '14px', sm: '24px'}}>{item.exerpt}</Typography>
                   <Box display={'flex'} justifyContent={'flex-start'} alignItems={'center'} gap={'10px'} mt={'1rem'}>
                     <Avatar
                       alt={item.author.name}
@@ -51,7 +52,7 @@ const Hero = () => {
                     />
                     <Box>
                       <Typography variant="body1">{item.author.name}</Typography>
-                      <Typography>{format(new Date(), 'dd MMM yyyy')} &#x2022; 10 min read </Typography>
+                      <Typography variant="body2">{format(new Date(), 'dd MMM yyyy')} &#x2022; 10 min read </Typography>
                     </Box>
                   </Box>
                 </Box>
@@ -66,23 +67,3 @@ const Hero = () => {
 
 export default Hero
 
-const data = [
-	{
-		image: 'https://media.graphassets.com/MxJZhmooRRuudoErkQ38',
-		title: 'Technical SEO with Hygraph',
-		exerpt: 'Get started with your SEO implementation when using a Headless CMS',
-		author: {
-			name: 'Samar Badriddinov',
-			image: 'https://media.graphassets.com/DkfNqQNGRz2F4UFntKQx',
-		},
-	},
-	{
-		image: 'https://media.graphassets.com/bh3K2NNtTHCN260Xfq9h',
-		title: 'Union Types and Sortable Relations with Hygraph',
-		exerpt: 'Learn more about Polymorphic Relations and Sortable Relations with Hygraph',
-		author: {
-			name: 'Samar Badriddinov',
-			image: 'https://media.graphassets.com/DkfNqQNGRz2F4UFntKQx',
-		},
-	},
-];
