@@ -7,7 +7,7 @@ import { Fragment } from "react"
 
 const Sidebar = () => {
   return (
-    <Box width={'30%'}>
+    <Box width={{xs: '100%', sm: '30%'}}>
         <Box position={'sticky'} top={'100px'} sx={{transition: 'all 0.4s easy-in-out'}}>
             <Box border={'1px solid grey'} borderRadius={'8px'} padding={'10px'} >
                 <Typography variant="h5">Latest Blogs</Typography>
