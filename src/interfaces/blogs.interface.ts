@@ -1,20 +1,21 @@
 export interface BlogsType {
-    title: string
-    excerp: string
-    id: string
-    slug: string
+    title: string;
+    excerp: string;
+    id: string;
+    slug: string;
     image: {
-        url: string
-    }
+        url: string;
+    };
+    createdAt: Date;
     cotegory: {
-        label: string
-        slug: string
-    }
+        label: string;
+        slug: string;
+    };
     author: {
-        name: string
-        id: string
+        name: string;
+        id: string;
         avatar: {
-        url: string
-        }
-    }
+        url: string;
+        };
+    };
 }
