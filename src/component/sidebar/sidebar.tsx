@@ -1,3 +1,4 @@
+import { CalculateEstimateTimeReading } from "@/src/helpers/timeFormat"
 import { Avatar, Box, Button, Typography } from "@mui/material"
 import { format } from "date-fns"
 import Image from "next/image"
@@ -32,7 +33,7 @@ const Sidebar = ({ latestBlogs, cotegories }: SideBarProps) => {
                                     />
                                     <Box sx={{opacity: '.4'}}>
                                         <Typography variant="body1">{item.author.name}</Typography>
-                                        <Typography variant="body2">{format(new Date(item.createdAt), 'dd MMM yyyy')} &#x2022; 10 min read </Typography>
+                                        <Typography variant="body2">{format(new Date(item.createdAt), 'dd MMM yyyy')} &#x2022; {CalculateEstimateTimeReading(item.description.text)} min read </Typography>
                                     </Box>
                                 </Box>
                             </Box>

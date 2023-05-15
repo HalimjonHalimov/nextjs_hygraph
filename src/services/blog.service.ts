@@ -28,6 +28,9 @@ export const BlogService = {
                         url
                         }
                     }
+                    description {
+                        text
+                      }
                 }
             }
             
@@ -39,21 +42,24 @@ export const BlogService = {
         const query = gql`
             query GetLatestBlogs {
                 blogs(last: 2) {
-                title
-                excerp
-                id
-                slug
-                image {
-                    url
-                }
-                createdAt
-                author {
-                    name
+                    title
+                    excerp
                     id
-                    avatar {
-                    url
+                    slug
+                    image {
+                        url
                     }
-                }
+                    createdAt
+                    author {
+                        name
+                        id
+                        avatar {
+                        url
+                        }
+                    }
+                    description {
+                        text
+                      }
                 }
             }
             

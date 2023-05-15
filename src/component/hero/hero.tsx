@@ -1,13 +1,15 @@
 import { data } from "@/src/config/constants";
+import { CalculateEstimateTimeReading } from "@/src/helpers/timeFormat";
 import { Avatar, Box, Typography } from "@mui/material"
 import { format } from "date-fns";
 import Image from "next/image";
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import { HeroProps } from "./hero.props";
 
 
 
-const Hero = () => {
+const Hero = ({ blogs }: HeroProps)  => {
 
   return (
     <Box width={'100%'} height={'70vh'}>
@@ -19,10 +21,10 @@ const Hero = () => {
           },
         }}
       >
-        {data.map(item => (
+        {blogs.map(item => (
           <Box key={item.title}>
            <Box position={'relative'} width={'100%'} height={'70vh'}>
-            <Image src={item.image} alt={item.title} fill style={{objectFit: 'cover'}}/>
+            <Image src={item.image.url} alt={item.title} fill style={{objectFit: 'cover'}}/>
             <Box sx={{
               position: 'absolute', 
               width: '100%', 
@@ -43,16 +45,16 @@ const Hero = () => {
                   }}
                 > 
                   <Typography variant="h2" fontSize={{xs: '24px', sm: '36px'}}>{item.title}</Typography>
-                  <Typography variant="h5" fontSize={{xs: '14px', sm: '24px'}}>{item.exerpt}</Typography>
+                  <Typography variant="h5" fontSize={{xs: '14px', sm: '24px'}}>{item.excerp}</Typography>
                   <Box display={'flex'} justifyContent={'flex-start'} alignItems={'center'} gap={'10px'} mt={'1rem'}>
                     <Avatar
                       alt={item.author.name}
-                      src={item.author.image}
+                      src={item.author.avatar.url}
                       sx={{ width: 56, height: 56 }}
                     />
                     <Box>
                       <Typography variant="body1">{item.author.name}</Typography>
-                      <Typography variant="body2">{format(new Date(), 'dd MMM yyyy')} &#x2022; 10 min read </Typography>
+                      <Typography variant="body2">{format(new Date(), 'dd MMM yyyy')} &#x2022; {CalculateEstimateTimeReading(item.description.text)} min read </Typography>
                     </Box>
                   </Box>
                 </Box>

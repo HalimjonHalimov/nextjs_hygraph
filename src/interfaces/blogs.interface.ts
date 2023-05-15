@@ -18,4 +18,7 @@ export interface BlogsType {
         url: string;
         };
     };
+    description: {
+        text: string;
+      }
 }

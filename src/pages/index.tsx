@@ -13,7 +13,7 @@ export default function Home({ blogs, latestBlogs, cotegories }: HomeProps) {
   return (
     <Layout>
       <Box>
-        <Hero />
+        <Hero blogs={blogs} />
         <Box display={'flex'} gap={'10px'} padding={'10px'} flexDirection={{xs: 'column', sm: 'row'}} >
           <Sidebar latestBlogs={latestBlogs}  cotegories={cotegories} />
           <Content  blogs={blogs} />
