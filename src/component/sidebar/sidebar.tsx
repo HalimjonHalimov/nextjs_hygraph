@@ -50,7 +50,7 @@ const Sidebar = ({ latestBlogs, cotegories }: SideBarProps) => {
                 <Box sx={{display: 'flex',  flexDirection: 'column', margin: '10px 0'}}>
                     {cotegories.map(item => (
                         <Fragment key={item.id}>
-                            <Button fullWidth sx={{paddingLeft: '1rem', color: '#fff', justifyContent: 'flex-start', backgroundColor: '#010120d7', border: '1px solid rgba(255, 255, 255, 0.4)', margin: '4px 0', fontSize: '14px', textTransform: 'capitalize'}} > {item.label}</Button>
+                            <Button onClick={() => router.push(`/cotegory/${item.slug}`) } fullWidth sx={{paddingLeft: '1rem', color: '#fff', justifyContent: 'flex-start', backgroundColor: '#010120d7', border: '1px solid rgba(255, 255, 255, 0.4)', margin: '4px 0', fontSize: '14px', textTransform: 'capitalize'}} > {item.label}</Button>
                         </Fragment>
                     ))}
                 </Box>

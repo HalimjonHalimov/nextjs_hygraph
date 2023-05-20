@@ -108,5 +108,34 @@ export const BlogService = {
         `;
         const result = await request<{blog: BlogsType}>(graphqlAPI, query, { slug })
         return result.blog
+    },
+    async getCotegoriesBlogs(slug: string) {
+        const query = gql`
+            query GetCotegoryBlogs($slug: String!) {
+                blogs(where: {cotegory: {slug: $slug}}) {
+                    title
+                    excerp
+                    id
+                    description {
+                        html
+                        text
+                    }
+                    image {
+                        url
+                    }
+                    author {
+                        id
+                        name
+                        avatar {
+                            url
+                        }
+                    }
+                    createdAt
+                }
+            }
+        `;
+        const result = await request<{blogs: BlogsType[]}>(graphqlAPI, query, {slug})
+        return result.blogs
     }
+
 }
