@@ -1,4 +1,3 @@
-import { data } from "@/src/config/constants";
 import { CalculateEstimateTimeReading } from "@/src/helpers/timeFormat";
 import { Avatar, Box, Typography } from "@mui/material"
 import { format } from "date-fns";
