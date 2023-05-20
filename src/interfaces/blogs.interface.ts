@@ -1,3 +1,4 @@
+
 export interface BlogsType {
     title: string;
     excerp: string;
@@ -20,5 +21,6 @@ export interface BlogsType {
     };
     description: {
         text: string;
+        html: string;
       }
 }
