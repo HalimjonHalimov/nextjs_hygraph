@@ -4,14 +4,16 @@ import { NavItems } from "@/src/config/constants";
 import { useState } from "react";
 import CloseIcon from '@mui/icons-material/Close';
 import AdjustIcon from '@mui/icons-material/Adjust';
+import { useRouter } from "next/router";
 
 
 interface Props {
-  window?: () => window;
+  window?: () => Window;
 }
 
 const Navbar = ({ window }: Props ) => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const router = useRouter()
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
@@ -68,7 +70,7 @@ const Navbar = ({ window }: Props ) => {
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {NavItems.map((item) => (
-              <Button key={item.route} sx={{ color: '#fff' }}>
+              <Button key={item.route} onClick={() => router.push(item.route)} sx={{ color: '#fff' }}>
                 {item.label}
               </Button>
             ))}

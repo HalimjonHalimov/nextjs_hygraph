@@ -5,7 +5,6 @@ import Layout from '@/src/layout/layout'
 import { BlogService } from '@/src/services/blog.service'
 import { Box } from '@mui/system'
 import { GetServerSideProps } from 'next'
-import React from 'react'
 
 const CotegoryBlogs = ({ blogs, latestBlogs, cotegories}: CotegoryBlogsProps) => {
   
