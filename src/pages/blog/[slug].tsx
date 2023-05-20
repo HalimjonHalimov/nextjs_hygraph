@@ -20,8 +20,8 @@ const DetailsBlog = ({ blog, latestBlogs, cotegories }: DetailsBlogProps) => {
     <Layout>
       <Box>
         <Box display={'flex'} gap={'10px'} padding={'10px'} flexDirection={{xs: 'column', sm: 'row'}} >
-          <Box  width={{xs: '100%', sm: '70%'}} boxShadow={'0px 8px 16px rgba(255, 255, 255, 0.1) '} sx={{backgroundColor: '#010110', padding: '10px', borderRadius: '8px'}}>
-            <Box  sx={{backgroundColor: 'rgba(0, 0, 0, 0.4)', cursor: 'pointer'}} padding={'1rem'} margin={'10px 0'} borderRadius={'8px'}>
+          <Box  width={{xs: '100%', sm: '70%'}} boxShadow={'0px 8px 16px rgba(255, 255, 255, 0.1) '} sx={{backgroundColor: 'rgba(0, 0, 0, 0.4)', padding: '10px', borderRadius: '8px'}}>
+            <Box  sx={{cursor: 'pointer'}} padding={'1rem'} margin={'10px 0'} borderRadius={'8px'}>
               <Box position={'relative'} width={'100%'} height={'50vh'}>
                 <Image src={blog.image.url} alt={blog.title} fill style={{objectFit: 'cover', borderRadius: '8px'}} />
               </Box>

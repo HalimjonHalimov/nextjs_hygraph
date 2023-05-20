@@ -3,6 +3,7 @@ import { CalculateEstimateTimeReading } from "@/src/helpers/timeFormat";
 import { Avatar, Box, Typography } from "@mui/material"
 import { format } from "date-fns";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { HeroProps } from "./hero.props";
@@ -10,6 +11,7 @@ import { HeroProps } from "./hero.props";
 
 
 const Hero = ({ blogs }: HeroProps)  => {
+  const router = useRouter()
 
   return (
     <Box width={'100%'} height={'70vh'}>
@@ -23,7 +25,7 @@ const Hero = ({ blogs }: HeroProps)  => {
       >
         {blogs.map(item => (
           <Box key={item.title}>
-           <Box position={'relative'} width={'100%'} height={'70vh'}>
+           <Box onClick={() => router.push(`/blog/${item.slug}`)} position={'relative'} width={'100%'} height={'70vh'} sx={{cursor: 'pointer'}}>
             <Image src={item.image.url} alt={item.title} fill style={{objectFit: 'cover'}}/>
             <Box sx={{
               position: 'absolute', 
