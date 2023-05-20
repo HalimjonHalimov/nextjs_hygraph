@@ -85,6 +85,7 @@ export const BlogService = {
             query GetDetailsBlog($slug: String!) {
                 blog(where: {slug: $slug}) {
                     title
+                    slug
                     excerp
                     id
                     description {
@@ -115,6 +116,7 @@ export const BlogService = {
                 blogs(where: {cotegory: {slug: $slug}}) {
                     title
                     excerp
+                    slug
                     id
                     description {
                         html

@@ -10,13 +10,10 @@ import { Box } from "@mui/system";
 import { format } from "date-fns";
 import { GetServerSideProps } from "next";
 import Image from "next/image";
-import { useRouter } from "next/router";
 
 
 const DetailsBlog = ({ blog, latestBlogs, cotegories }: DetailsBlogProps) => {
 
-  const router = useRouter()
-  console.log(router.query);
   
   
   return (
@@ -62,6 +59,7 @@ export const getServerSideProps: GetServerSideProps<DetailsBlogProps> = async ({
   const blog = await BlogService.getDetailsBlog(query.slug as string )
   const latestBlogs = await BlogService.getLatestBlogs();
   const cotegories = await BlogService.getCotegories()
+  
   
   
   return {

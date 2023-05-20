@@ -20,21 +20,21 @@ const Navbar = ({ window }: Props ) => {
   };
 
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
+    <Box onClick={handleDrawerToggle}  sx={{ textAlign: 'center' }}>
       <Box paddingX={2} display={'flex'} justifyContent={'space-between'} alignItems={'center'}>
         <Typography variant="h6" sx={{ my: 2 }}>
-          <Box  display={'flex'} justifyContent={'flex-start'} alignItems={'center'}>
+          <Box  onClick={() => router.push('/')}  display={'flex'} justifyContent={'flex-start'} alignItems={'center'} sx={{cursor: 'pointer'}}>
             <AdjustIcon />
             <Typography  variant="h6">Blackmagic</Typography>
           </Box>
         </Typography>
-        <CloseIcon />
+        <CloseIcon  sx={{cursor:'pointer'}}/>
       </Box>
       <Divider />
       <List>
         {NavItems.map((item) => (
           <ListItem key={item.route} disablePadding>
-            <ListItemButton sx={{ textAlign: 'center' }}>
+            <ListItemButton onClick={() => router.push(item.route)} sx={{ textAlign: 'center' }}>
               <ListItemText primary={item.label} />
             </ListItemButton>
           </ListItem>
@@ -63,7 +63,7 @@ const Navbar = ({ window }: Props ) => {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
           >
-            <Box  display={'flex'} justifyContent={'flex-start'} alignItems={'center'}>
+            <Box onClick={() => router.push('/')}  display={'flex'} justifyContent={'flex-start'} alignItems={'center'} sx={{cursor: 'pointer'}}>
               <AdjustIcon />
               <Typography  variant="h6">Blackmagic</Typography>
             </Box>

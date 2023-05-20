@@ -30,9 +30,9 @@ const CotegoryBlogs = ({ cotegories }: CotegoryBlogsProps) => {
               }}
           >
               <Typography marginBottom={'10px'} variant="h2" fontFamily={'cursive'}> All Cotegorys </Typography>
-              <ButtonGroup color="primary" variant="contained" aria-label="contained  button group">
+              <ButtonGroup  color="primary" variant="contained" aria-label="contained  button group">
                   {cotegories.map(item => (
-                      <Button key={item.id} onClick={() => router.push(`/cotegory/${item.slug}`) } > # {item.label}</Button>
+                      <Button key={item.id} onClick={() => router.push(`/cotegory/${item.slug}`)}  > # {item.label}</Button>
                   ))}
               </ButtonGroup>
           </Box>
